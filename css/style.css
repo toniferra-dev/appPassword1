@@ -1,0 +1,132 @@
+/* CSS */
+@import url(normalize.css);
+@import url(reset.css);
+/* FUENTES */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300&family=Luckiest+Guy&display=swap");
+
+/* VARIABLES */
+:root{
+    /* Colores */
+    --color_borde: #e05e95;
+    --color_boton: #29AED5;
+    --color_blanco: #e7ebe9;
+    /* Tamaños */
+    --tam_border-radius: 10px;
+    --tam_padding: 10px;
+}
+
+
+
+/* ********* */
+/* CONTENIDO */
+/* ********* */
+body {
+    height: 100vh;
+    /* Imagen de fondo */
+    background-image: url(../img/fondo_baja@1x.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* Centrar para siempre el container en el centro */
+    display: flex;
+    justify-content: center;
+    align-items: start;
+
+    font-family: "Inter", sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.container {
+    /* 2023 es la segunda resolución más utilizada en España */
+    width: 1366px;
+    /* Grid de 16 columnas y un gap de 16px */
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+    column-gap: 16px;
+
+    & .banner {
+        grid-column: 1 / 17;
+        height: 300px;
+        background-image: url(../img/banner_baja@1x.webp);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    & main {
+        grid-column: 2 / 16;
+    }
+}
+main {
+    /* Grid nuevo de 14 columnas y gap 16px */
+    display: grid;
+    grid-template-columns: repeat(14, 1fr);
+    column-gap: 16px;
+    row-gap: 25px;
+    /* nombre de la App y versión */
+    & .main__titulo {
+        grid-column: 1 / 15;
+        font-family: "Luckiest Guy", cursive;
+        font-size: 75px;
+        margin-bottom: 0;
+        /* versión de la applicación */
+        & .main__version {
+            font-size: 26.542px;
+            font-family: "Inter", sans-serif;
+            font-style: italic;
+            font-weight: 300;
+        }
+    }
+    & .main__explicacion {
+        grid-column: 1 / 15;
+    }
+    /* section que se llama .input */
+    & .input {
+        grid-column: 1 / 15;
+
+        display: flex;
+        justify-content: space-between;
+
+        border-radius: var(--tam_border-radius);
+        border: 1px solid var(--color_borde);
+        background: var(--color_blanco);
+        padding: var(--tam_padding);
+        
+        & .main__textoPassword {
+            /* Alargar la zona de password */
+            flex-grow: 1;
+            /* controlar el texto del password en el centro */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            font-size: 30px;
+        }
+        & .main__btnActualizar {
+            cursor: pointer;
+        }
+    }
+
+    & .main__flechaDer{
+        grid-column: 7 / 8;
+    }
+
+    & .main__copiar {
+        color: var(--color_blanco);
+        font-family: "Inter", sans-serif;
+        font-size: 40px;
+        font-weight: 700;
+
+        border: 0;
+        cursor: pointer;
+
+        grid-column: 5 / 11;
+        border-radius: var(--tam_border-radius);
+        background: var(--color_boton);
+        padding: var(--tam_padding);
+    }
+
+}
+/* Flechas en opacidad baja */
+.main__flechaDer, .main__flechaIzq{
+    opacity: 0.2;
+}
